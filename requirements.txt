@@ -20,6 +20,9 @@ hydra-optuna-sweeper==1.2.0
 # ------demo -------- #
 gradio==3.44.0
 
+# ---fsdp training -----# 
+fairscale==0.4.12
+
 # --------- others --------- #
 rootutils       # standardizing the project root setup
 pre-commit      # hooks for applying linters on commit

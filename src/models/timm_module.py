@@ -5,6 +5,7 @@ import torch
 from lightning import LightningModule
 from torchmetrics import MaxMetric, MeanMetric
 from torchmetrics.classification.accuracy import Accuracy
+from fairscale.nn import checkpoint_wrapper, auto_wrap, wrap
 
 class TIMMLitModule(LightningModule):
 
@@ -36,6 +37,9 @@ class TIMMLitModule(LightningModule):
 
         # for tracking best so far validation accuracy
         self.val_acc_best = MaxMetric()
+
+    #def configure_sharded_model(self):
+    #    self.net = auto_wrap(self.net)
 
     def forward(self, x: torch.Tensor):
         return self.net(x)
